@@ -80,6 +80,9 @@ define Package/$(PKG_NAME)/install
 	$(INSTALL_DIR) $(1)/usr/share/pingos
 	cp -pR $(PKG_INSTALL_DIR)/usr/share/pingos/conf $(1)/usr/share/pingos
 	$(INSTALL_DATA) ./root/resource/conf-template/nginx.conf $(1)/usr/share/pingos/conf/nginx.conf
+
+	$(INSTALL_DIR) $(1)/usr/share/rpcd/acl.d
+	cp -pR ./root/usr/share/rpcd/acl.d/* $(1)/usr/share/rpcd/acl.d
 	
 	cp -pR $(PKG_INSTALL_DIR)/usr/html $(1)/usr/share/pingos/html
 	$(INSTALL_DATA) ./root/resource/crossdomain.xml $(1)/usr/share/pingos/html/crossdomain.xml
